@@ -1,7 +1,17 @@
+import 'package:amap_all_fluttify/amap_all_fluttify.dart';
 import 'package:amap_demo/map_demo.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(MyApp());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AmapService.init(
+    iosKey: '6a6b60a38543211fe2097ced874b3fdf', 
+    androidKey: '7c9daac55e90a439f7b4304b465297fa'
+  );
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
