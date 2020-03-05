@@ -30,6 +30,11 @@ class _MapDemoState extends State<MapDemo> {
 
   AmapController _controller;
 
+  List<LatLng> _polylineList = [
+    LatLng(28.180221082899305,113.03316867404514),
+    LatLng(29.180221082899305,113.03316867404514),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +53,14 @@ class _MapDemoState extends State<MapDemo> {
               await _controller?.showMyLocation(
                 true,
                 myLocationType: MyLocationType.Follow
+              );
+
+              await _controller?.addPolyline(
+                PolylineOption(
+                  latLngList: _polylineList,
+                  strokeColor: Colors.green,
+                  width: 20,
+                ),
               );
             }
           },
